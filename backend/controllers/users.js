@@ -1,7 +1,9 @@
 const jsonWebToken = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { ValidationError, CastError } = require('mongoose').Error;
-const { NotFoundError, BadRequestError, ConflictingRequestError, UnauthorizedError } = require('../utils/errors/errors');
+const {
+  NotFoundError, BadRequestError, ConflictingRequestError, UnauthorizedError,
+} = require('../utils/errors/errors');
 const User = require('../models/user');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -14,7 +16,7 @@ const getUserById = (req, res, next) => {
     .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof CastError) {
-        next(new BadRequestError('Переданы некорректные данные при поиске пользователя по id'))
+        next(new BadRequestError('Переданы некорректные данные при поиске пользователя по id'));
       } else {
         next(err);
       }
@@ -38,7 +40,7 @@ const createUser = (req, res, next) => {
       if (err instanceof ValidationError) {
         next(new BadRequestError('Переданы некорректные данные при создании пользователя'));
       } else if (err.code === 11000) {
-        next(new ConflictingRequestError('Пользователь с таким email уже существует'))
+        next(new ConflictingRequestError('Пользователь с таким email уже существует'));
       } else {
         next(err);
       }

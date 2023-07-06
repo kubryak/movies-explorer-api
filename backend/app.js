@@ -26,6 +26,8 @@ mongoose.connect(DB_URL);
 
 app.use(express.json());
 
+app.use(limiter);
+
 app.use(cookieParser());
 
 app.use(helmet());
