@@ -4,6 +4,6 @@ const { validateMovieId, validateCreateMovie } = require('../middlewares/celebra
 
 router.get('/', getMovies);
 router.post('/', validateCreateMovie, createMovie);
-router.delete('/:_id', validateMovieId, deleteMovie);
+router.delete('/:movieId', validateMovieId, deleteMovie);
 
 module.exports = router;

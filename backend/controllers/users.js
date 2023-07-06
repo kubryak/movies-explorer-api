@@ -82,7 +82,7 @@ const login = (req, res, next) => {
               httpOnly: true,
               sameSite: true,
             });
-            res.send({ jst });
+            res.send({ jwt });
           } else {
             throw new UnauthorizedError('Неверный логин или пароль');
           }
