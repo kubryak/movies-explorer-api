@@ -18,6 +18,8 @@ app.use(cors({
   origin:
     [
       'http://localhost:3001',
+      'http://qqbrk.nomoredomains.work',
+      'https://qqbrk.nomoredomains.work',
     ],
   credentials: true,
 }));
