@@ -59,10 +59,9 @@ const updateUser = (req, res, next) => {
     .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof ValidationError) {
-        next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
-      } else {
-        next(err);
+        return next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
       }
+      return next(err);
     });
 };
 
@@ -94,9 +93,14 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
+const logout = (req, res) => {
+  res.clearCookie('jwt').send({ message: 'Осуществлен выход с сайта' });
+};
+
 module.exports = {
   getUserById,
   createUser,
   updateUser,
   login,
+  logout,
 };

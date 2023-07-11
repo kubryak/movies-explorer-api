@@ -8,9 +8,9 @@ const validateCreateMovie = celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().regex(regexImageLink),
-    trailerLink: Joi.string().regex(regexImageLink),
-    thumbnail: Joi.string().regex(regexImageLink),
+    image: Joi.string().required().regex(regexImageLink),
+    trailerLink: Joi.string().required().regex(regexImageLink),
+    thumbnail: Joi.string().required().regex(regexImageLink),
     movieId: Joi.number().required(),
     nameRu: Joi.string().required(),
     nameEn: Joi.string().required(),
@@ -41,7 +41,7 @@ const validateCreateUser = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
-    name: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
   }),
 });
 
