@@ -23,8 +23,8 @@
 
 ## Ссылки на проект
 
-IP //
+IP 158.160.76.170
 
-Backend //
+Backend https://api.qbrk.nomoreparties.sbs/
 
 Ссылка на код проекта: https://github.com/kubryak/movies-explorer-api
