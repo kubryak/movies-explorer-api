@@ -18,6 +18,7 @@ const app = express();
 app.use(cors({
   origin:
     [
+      'http://localhost:3000',
       'http://localhost:3001',
       'http://qqbrk.nomoredomains.work',
       'https://qqbrk.nomoredomains.work',
@@ -29,7 +30,7 @@ mongoose.connect(DB_URL);
 
 app.use(express.json());
 
-app.use(limiter);
+// app.use(limiter);
 
 app.use(cookieParser());
 
