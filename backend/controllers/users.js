@@ -95,7 +95,14 @@ const login = (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie('jwt').send({ message: 'Осуществлен выход с сайта' });
+  const cookieOptions = {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'None',
+  };
+
+  res.clearCookie('jwt', cookieOptions)
+  res.send({ message: 'Осуществлен выход с сайта' });
 };
 
 module.exports = {
